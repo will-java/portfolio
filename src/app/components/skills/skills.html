@@ -1,0 +1,20 @@
+<section id="skills" class="section reveal">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    @for (category of categories; track category.category) {
+      <article class="card">
+        <h3>{{ category.category }}</h3>
+        <div class="badge-list">
+          @for (item of category.items; track item.name) {
+            <span class="badge">
+              @if (item.icon) {
+                <img [src]="item.icon" [alt]="'Ícone de ' + item.name" loading="lazy" />
+              }
+              {{ item.name }}
+            </span>
+          }
+        </div>
+      </article>
+    }
+  </div>
+</section>

@@ -1,0 +1,14 @@
+<section id="certifications" class="section reveal">
+  <h2>Certificações</h2>
+  <swiper-container #swiperRef class="certifications-swiper" init="false">
+    @for (certificate of certificates; track certificate.title) {
+      <swiper-slide>
+        <article class="card certification-card">
+          <h3>{{ certificate.title }}</h3>
+          <p><strong>Instituição:</strong> {{ certificate.institution }}</p>
+          <p><strong>Ano:</strong> {{ certificate.year }}</p>
+        </article>
+      </swiper-slide>
+    }
+  </swiper-container>
+</section>

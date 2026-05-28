@@ -1,0 +1,18 @@
+.timeline {
+  display: grid;
+  gap: 1rem;
+}
+
+.timeline-card {
+  border-left: 4px solid var(--secondary);
+}
+
+.role {
+  font-weight: 700;
+  margin: 0.5rem 0 0.2rem;
+}
+
+.team {
+  margin: 0 0 0.7rem;
+  color: var(--muted);
+}

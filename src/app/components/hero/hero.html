@@ -1,0 +1,34 @@
+<section id="hero" class="hero section reveal">
+  <div class="hero-content">
+    <p class="tag">Desenvolvedor Full Stack</p>
+    <h1>William dos Santos Machado</h1>
+    <h2>Desenvolvedor Full Stack | Java | Angular | Engenheiro de Software em formação</h2>
+    <p class="subtitle">
+      Atuação prática em backend, frontend, integrações, pipelines, code review e aplicações escaláveis.
+    </p>
+
+    <div class="cta-group">
+      <a class="btn primary" href="#projects">Ver Projetos</a>
+      <a class="btn" href="#contact">Entrar em contato</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/williamdsmachado/" target="_blank" rel="noopener noreferrer"
+        >LinkedIn</a
+      >
+      <a class="btn ghost" href="https://github.com/will-java" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    @if (imageLoadFailed) {
+      <div class="profile-fallback" aria-label="Foto de perfil de William dos Santos Machado">
+        <span>WM</span>
+      </div>
+    } @else {
+      <img
+        [src]="profileImage"
+        alt="William dos Santos Machado"
+        loading="eager"
+        (error)="onImageError()"
+      />
+    }
+  </div>
+</section>

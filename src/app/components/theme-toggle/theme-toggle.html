@@ -1,0 +1,12 @@
+<button
+  class="theme-toggle"
+  type="button"
+  (click)="toggleTheme()"
+  aria-label="Alternar tema claro e escuro"
+>
+  @if (currentTheme() === 'dark') {
+    <span aria-hidden="true">☀️</span>
+  } @else {
+    <span aria-hidden="true">🌙</span>
+  }
+</button>
