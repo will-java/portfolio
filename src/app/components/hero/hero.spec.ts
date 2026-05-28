@@ -12,6 +12,8 @@ describe('Hero', () => {
     const fixture = TestBed.createComponent(Hero);
     fixture.detectChanges();
 
+    expect(fixture.componentInstance['profileImage']).toBe('assets/img/profile.jpg');
+
     const compiled = fixture.nativeElement as HTMLElement;
     const image = compiled.querySelector('.hero-image img');
 

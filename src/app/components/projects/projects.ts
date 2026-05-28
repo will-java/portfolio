@@ -9,6 +9,7 @@ import { PortfolioDataService } from '../../services/portfolio-data.service';
 })
 export class Projects {
   private readonly portfolioData = inject(PortfolioDataService);
+  private readonly defaultProjectImage = 'https://placehold.co/640x360/1e293b/e2e8f0?text=Projeto';
 
   readonly projects = this.portfolioData.projects;
   protected readonly initialProjectsCount = 6;
@@ -25,5 +26,9 @@ export class Projects {
 
   protected toggleProjectsVisibility(): void {
     this.showAllProjects = !this.showAllProjects;
+  }
+
+  protected getProjectImage(projectImageUrl?: string): string {
+    return projectImageUrl ?? this.defaultProjectImage;
   }
 }

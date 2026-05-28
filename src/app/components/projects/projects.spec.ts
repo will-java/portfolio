@@ -8,14 +8,15 @@ describe('Projects', () => {
     }).compileComponents();
   });
 
-  it('should show featured projects first with expand button', () => {
+  it('should show only featured projects with expand button when not expanded', () => {
     const fixture = TestBed.createComponent(Projects);
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
     const cards = compiled.querySelectorAll('.project-card');
+    const expectedFeaturedCount = fixture.componentInstance.projects.filter((project) => project.featured).length;
 
-    expect(cards.length).toBe(3);
+    expect(cards.length).toBe(expectedFeaturedCount);
     expect(compiled.textContent).toContain('Ver mais projetos');
   });
 
@@ -29,7 +30,7 @@ describe('Projects', () => {
     fixture.detectChanges();
 
     const cards = compiled.querySelectorAll('.project-card');
-    expect(cards.length).toBe(17);
+    expect(cards.length).toBe(fixture.componentInstance.projects.length);
     expect(compiled.textContent).toContain('Ver menos projetos');
   });
 
@@ -43,5 +44,16 @@ describe('Projects', () => {
     actions.forEach((action) => {
       expect(action.textContent).not.toContain('Demo');
     });
+  });
+
+  it('should show demo action when a project has demoUrl', () => {
+    const fixture = TestBed.createComponent(Projects);
+    fixture.componentInstance.projects[0].demoUrl = 'https://example.com/demo';
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    const firstActions = compiled.querySelector('.project-card .actions');
+
+    expect(firstActions?.textContent).toContain('Demo');
   });
 });
