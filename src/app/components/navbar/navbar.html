@@ -1,0 +1,23 @@
+<header class="navbar-wrapper" [class.scrolled]="isScrolled">
+  <nav class="navbar" aria-label="Navegação principal">
+    <a href="#hero" class="brand" (click)="closeMenu()">William.dev</a>
+
+    <button
+      class="menu-button"
+      type="button"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen"
+      aria-controls="main-menu"
+      aria-label="Abrir menu"
+    >
+      ☰
+    </button>
+
+    <div class="links" id="main-menu" [class.open]="isMenuOpen">
+      @for (item of navItems; track item.href) {
+        <a [href]="item.href" (click)="closeMenu()">{{ item.label }}</a>
+      }
+      <app-theme-toggle />
+    </div>
+  </nav>
+</header>

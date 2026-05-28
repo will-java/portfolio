@@ -1,0 +1,22 @@
+<section id="experience" class="section reveal">
+  <h2>Experiência</h2>
+  <div class="timeline">
+    @for (experience of experiences; track experience.company + experience.role) {
+      <article class="timeline-card card">
+        <h3>{{ experience.company }}</h3>
+        <p class="role">{{ experience.role }}</p>
+        @if (experience.team) {
+          <p class="team">{{ experience.team }}</p>
+        }
+        <p>{{ experience.description }}</p>
+        @if (experience.stack?.length) {
+          <div class="stack-list">
+            @for (item of experience.stack; track item) {
+              <span class="badge">{{ item }}</span>
+            }
+          </div>
+        }
+      </article>
+    }
+  </div>
+</section>

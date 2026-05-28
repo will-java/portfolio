@@ -1,0 +1,20 @@
+.certifications-swiper {
+  padding-bottom: 2.3rem;
+}
+
+.certification-card {
+  min-height: 195px;
+}
+
+:host {
+  display: block;
+}
+
+:host ::ng-deep .swiper-button-next,
+:host ::ng-deep .swiper-button-prev {
+  color: var(--secondary);
+}
+
+:host ::ng-deep .swiper-pagination-bullet-active {
+  background: var(--secondary);
+}

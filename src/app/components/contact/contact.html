@@ -1,0 +1,35 @@
+<section id="contact" class="section reveal">
+  <h2>Contato</h2>
+  <div class="contact-grid">
+    <div class="card links-card">
+      <h3>Redes e canais</h3>
+      <div class="contact-links">
+        @for (link of contactLinks; track link.url) {
+          <a class="btn" [href]="link.url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="link.label">
+            {{ link.label }}
+          </a>
+        }
+      </div>
+    </div>
+
+    <form class="card form-card" (ngSubmit)="submitForm()">
+      <h3>Envie uma mensagem</h3>
+      <label>
+        Nome
+        <input type="text" name="nome" [(ngModel)]="formData.nome" required />
+      </label>
+      <label>
+        E-mail
+        <input type="email" name="email" [(ngModel)]="formData.email" required />
+      </label>
+      <label>
+        Mensagem
+        <textarea name="mensagem" rows="4" [(ngModel)]="formData.mensagem" required></textarea>
+      </label>
+      <button class="btn primary" type="submit">Enviar</button>
+      @if (submitted) {
+        <p class="feedback">Mensagem registrada localmente. Obrigado pelo contato!</p>
+      }
+    </form>
+  </div>
+</section>
