@@ -15,20 +15,28 @@ export class Projects {
   protected readonly initialProjectsCount = 6;
   protected showAllProjects = false;
 
-  protected get visibleProjects() {
+  protected get displayedProjects() {
     if (this.showAllProjects) {
       return this.projects;
     }
 
-    const featuredProjects = this.projects.filter((project) => project.featured);
-    return featuredProjects.length ? featuredProjects : this.projects.slice(0, this.initialProjectsCount);
+    return this.getCollapsedProjects();
   }
 
   protected toggleProjectsVisibility(): void {
     this.showAllProjects = !this.showAllProjects;
   }
 
+  protected get shouldShowToggleButton(): boolean {
+    return this.showAllProjects || this.getCollapsedProjects().length < this.projects.length;
+  }
+
   protected getProjectImage(projectImageUrl?: string): string {
     return projectImageUrl ?? this.defaultProjectImage;
+  }
+
+  private getCollapsedProjects() {
+    const featuredProjects = this.projects.filter((project) => project.featured);
+    return featuredProjects.length ? featuredProjects : this.projects.slice(0, this.initialProjectsCount);
   }
 }

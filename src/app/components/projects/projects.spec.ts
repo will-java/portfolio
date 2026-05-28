@@ -48,12 +48,15 @@ describe('Projects', () => {
 
   it('should show demo action when a project has demoUrl', () => {
     const fixture = TestBed.createComponent(Projects);
-    fixture.componentInstance.projects[0].demoUrl = 'https://example.com/demo';
+    const firstProject = fixture.componentInstance.projects[0];
+    const originalDemoUrl = firstProject.demoUrl;
+    firstProject.demoUrl = 'https://example.com/demo';
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
     const firstActions = compiled.querySelector('.project-card .actions');
 
     expect(firstActions?.textContent).toContain('Demo');
+    firstProject.demoUrl = originalDemoUrl;
   });
 });

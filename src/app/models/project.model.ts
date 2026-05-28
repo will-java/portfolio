@@ -4,6 +4,6 @@ export interface Project {
   stack: string[];
   imageUrl?: string;
   githubUrl: string;
-  demoUrl?: string | null;
+  demoUrl: string | null;
   featured?: boolean;
 }

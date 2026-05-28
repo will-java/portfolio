@@ -1,7 +1,7 @@
 <section id="projects" class="section reveal">
   <h2>Projetos</h2>
   <div class="projects-grid">
-    @for (project of visibleProjects; track project.title) {
+    @for (project of displayedProjects; track project.title) {
       <article class="card project-card">
         <img [src]="getProjectImage(project.imageUrl)" [alt]="'Imagem do projeto ' + project.title" loading="lazy" />
         <div class="content">
@@ -22,7 +22,7 @@
       </article>
     }
   </div>
-  @if (projects.length > initialProjectsCount) {
+  @if (shouldShowToggleButton) {
     <div class="show-more">
       <button type="button" class="btn ghost" (click)="toggleProjectsVisibility()">
         {{ showAllProjects ? 'Ver menos projetos' : 'Ver mais projetos' }}
