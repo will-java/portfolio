@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
 })
-export class Hero {}
+export class Hero {
+  protected readonly profileImage = 'assets/img/profile.jpg';
+  protected imageLoadFailed = false;
+
+  protected onImageError(): void {
+    this.imageLoadFailed = true;
+  }
+}
