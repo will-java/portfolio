@@ -18,7 +18,17 @@
   </div>
 
   <div class="hero-image">
-    <!-- Substituir pela foto real aqui -->
-    <img src="assets/img/profile-placeholder.svg" alt="Foto de perfil de William dos Santos Machado" />
+    @if (imageLoadFailed) {
+      <div class="profile-fallback" aria-label="Fallback de foto de perfil">
+        <span>WM</span>
+      </div>
+    } @else {
+      <img
+        [src]="profileImage"
+        alt="William dos Santos Machado"
+        loading="eager"
+        (error)="onImageError()"
+      />
+    }
   </div>
 </section>

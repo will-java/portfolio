@@ -10,6 +10,20 @@ import { PortfolioDataService } from '../../services/portfolio-data.service';
 export class Projects {
   private readonly portfolioData = inject(PortfolioDataService);
 
-  // substituir pelos projetos reais
   readonly projects = this.portfolioData.projects;
+  protected readonly initialProjectsCount = 6;
+  protected showAllProjects = false;
+
+  protected get visibleProjects() {
+    if (this.showAllProjects) {
+      return this.projects;
+    }
+
+    const featuredProjects = this.projects.filter((project) => project.featured);
+    return featuredProjects.length ? featuredProjects : this.projects.slice(0, this.initialProjectsCount);
+  }
+
+  protected toggleProjectsVisibility(): void {
+    this.showAllProjects = !this.showAllProjects;
+  }
 }
