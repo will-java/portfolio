@@ -16,3 +16,23 @@
   gap: 0.8rem;
   color: var(--muted);
 }
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  transition:
+    color var(--transition),
+    border-color var(--transition),
+    transform var(--transition);
+
+  &:hover {
+    color: var(--brand-color, var(--secondary));
+    border-color: var(--brand-color, var(--secondary));
+    transform: translateY(-2px);
+  }
+}

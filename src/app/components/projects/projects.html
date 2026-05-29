@@ -3,7 +3,14 @@
   <div class="projects-grid">
     @for (project of displayedProjects; track project.title) {
       <article class="card project-card">
-        <img [src]="getProjectImage(project.imageUrl)" [alt]="'Imagem do projeto ' + project.title" loading="lazy" />
+        <div class="tech-cover">
+          @for (icon of getProjectTechIcons(project.stack); track icon.name) {
+            <img [src]="icon.url" [alt]="icon.name" class="tech-icon" loading="lazy" />
+          }
+          @if (getProjectTechIcons(project.stack).length === 0) {
+            <span class="tech-placeholder">&lt;/&gt;</span>
+          }
+        </div>
         <div class="content">
           <h3>{{ project.title }}</h3>
           <p>{{ project.description }}</p>

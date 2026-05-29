@@ -9,11 +9,29 @@
   padding: 0;
 }
 
-.project-card img {
+.tech-cover {
   width: 100%;
   height: 190px;
-  object-fit: cover;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.12), rgba(59, 130, 246, 0.12));
+}
+
+.tech-icon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.tech-placeholder {
+  font-size: 2.5rem;
+  color: var(--muted);
+  font-family: monospace;
+  font-weight: 700;
 }
 
 .content {
