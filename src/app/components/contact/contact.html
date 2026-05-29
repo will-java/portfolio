@@ -11,7 +11,7 @@
             target="_blank"
             rel="noopener noreferrer"
             [attr.aria-label]="link.label"
-            [style]="{'--brand-color': link.hoverColor}"
+            [style.--brand-color]="link.hoverColor"
           >
             @if (link.svgPath) {
               <svg

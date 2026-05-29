@@ -68,15 +68,16 @@ export class Projects {
 
   protected getProjectTechIcons(stack: string[]): Array<{ name: string; url: string }> {
     const seen = new Set<string>();
-    return stack
-      .filter((tech) => {
-        const url = TECH_ICONS[tech];
-        if (!url || seen.has(url)) return false;
+    const result: Array<{ name: string; url: string }> = [];
+    for (const tech of stack) {
+      const url = TECH_ICONS[tech];
+      if (url && !seen.has(url)) {
         seen.add(url);
-        return true;
-      })
-      .map((tech) => ({ name: tech, url: TECH_ICONS[tech] }))
-      .slice(0, 5);
+        result.push({ name: tech, url });
+        if (result.length === 5) break;
+      }
+    }
+    return result;
   }
 
   private getCollapsedProjects() {
